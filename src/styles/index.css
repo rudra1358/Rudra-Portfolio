@@ -1,0 +1,201 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/*
+ * Design tokens
+ * -------------
+ * Two global themes (light / dark) x two section "tones" (paper / ink).
+ * Sections pick a tone; components only ever use the semantic variables
+ * (--bg, --fg, --muted, ...), so the same component renders correctly on
+ * a light band, a dark band, and in either theme.
+ */
+:root,
+:root[data-theme="light"] {
+  color-scheme: light;
+  --paper-bg: #f8fafc;
+  --paper-bg-alt: #f1f5f9;
+  --paper-surface: #ffffff;
+  --paper-fg: #101827;
+  --paper-muted: #475569;
+  --paper-subtle: #94a3b8;
+  --paper-line: #e2e8f0;
+  --paper-accent: #2563eb;
+  --paper-accent-soft: rgba(59, 130, 246, 0.1);
+
+  --ink-bg: #101827;
+  --ink-bg-alt: #0c1322;
+  --ink-surface: #162036;
+  --ink-fg: #f8fafc;
+  --ink-muted: #a3b1c6;
+  --ink-subtle: #64748b;
+  --ink-line: rgba(148, 163, 184, 0.16);
+  --ink-accent: #60a5fa;
+  --ink-accent-soft: rgba(96, 165, 250, 0.14);
+
+  --nav-bg: rgba(248, 250, 252, 0.78);
+  --shadow-card: 0 1px 2px rgba(16, 24, 39, 0.04), 0 8px 24px -12px rgba(16, 24, 39, 0.12);
+  --shadow-lift: 0 2px 4px rgba(16, 24, 39, 0.04), 0 24px 48px -20px rgba(16, 24, 39, 0.28);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper-bg: #0b1120;
+  --paper-bg-alt: #0e1628;
+  --paper-surface: #111a2e;
+  --paper-fg: #e8edf5;
+  --paper-muted: #9aa8bd;
+  --paper-subtle: #64748b;
+  --paper-line: rgba(148, 163, 184, 0.14);
+  --paper-accent: #60a5fa;
+  --paper-accent-soft: rgba(96, 165, 250, 0.12);
+
+  --ink-bg: #171717;
+  --ink-bg-alt: #121212;
+  --ink-surface: #202020;
+  --ink-fg: #f5f5f5;
+  --ink-muted: #a3a3a3;
+  --ink-subtle: #737373;
+  --ink-line: rgba(255, 255, 255, 0.09);
+  --ink-accent: #60a5fa;
+  --ink-accent-soft: rgba(96, 165, 250, 0.12);
+
+  --nav-bg: rgba(11, 17, 32, 0.78);
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -12px rgba(0, 0, 0, 0.5);
+  --shadow-lift: 0 2px 4px rgba(0, 0, 0, 0.3), 0 24px 48px -20px rgba(0, 0, 0, 0.7);
+}
+
+.tone-paper,
+:root {
+  --bg: var(--paper-bg);
+  --bg-alt: var(--paper-bg-alt);
+  --surface: var(--paper-surface);
+  --fg: var(--paper-fg);
+  --muted: var(--paper-muted);
+  --subtle: var(--paper-subtle);
+  --line: var(--paper-line);
+  --accent: var(--paper-accent);
+  --accent-soft: var(--paper-accent-soft);
+}
+
+.tone-ink {
+  --bg: var(--ink-bg);
+  --bg-alt: var(--ink-bg-alt);
+  --surface: var(--ink-surface);
+  --fg: var(--ink-fg);
+  --muted: var(--ink-muted);
+  --subtle: var(--ink-subtle);
+  --line: var(--ink-line);
+  --accent: var(--ink-accent);
+  --accent-soft: var(--ink-accent-soft);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-alt: var(--bg-alt);
+  --color-surface: var(--surface);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-ink: var(--ink-bg);
+
+  --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+  --font-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+
+  --shadow-card: var(--shadow-card);
+  --shadow-lift: var(--shadow-lift);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 4rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .container-x {
+    width: 100%;
+    max-width: 76rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 640px) {
+    .container-x {
+      padding-inline: 2rem;
+    }
+  }
+
+  /* Faint dot grid used behind the hero and a few panels. */
+  .dot-grid {
+    background-image: radial-gradient(circle at 1px 1px, var(--line) 1px, transparent 0);
+    background-size: 22px 22px;
+  }
+
+  .serif-accent {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+}
+
+@keyframes caret-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.caret {
+  animation: caret-blink 1.05s step-end infinite;
+}

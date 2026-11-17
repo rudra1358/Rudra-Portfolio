@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rudra Patel — AI/ML &amp; Full Stack Developer</title>
+    <meta
+      name="description"
+      content="Rudra Patel is a Computer Science student building machine learning projects, data analysis tools and full stack web applications with Python, React and Node.js."
+    />
+    <meta name="author" content="Rudra Patel" />
+    <meta name="theme-color" content="#F8FAFC" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0B1120" media="(prefers-color-scheme: dark)" />
+    <link rel="canonical" href="https://rudra-patel-portfolio.rudra1358.workers.dev/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://rudra-patel-portfolio.rudra1358.workers.dev/" />
+    <meta property="og:title" content="Rudra Patel — AI/ML &amp; Full Stack Developer" />
+    <meta
+      property="og:description"
+      content="Machine learning, data analysis and full stack projects by Rudra Patel, Computer Science student."
+    />
+    <meta property="og:image" content="https://rudra-patel-portfolio.rudra1358.workers.dev/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      // Apply the saved (or system) theme before first paint to avoid a flash.
+      (function () {
+        try {
+          var saved = localStorage.getItem("theme");
+          var theme = saved === "light" || saved === "dark"
+            ? saved
+            : window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+          document.documentElement.dataset.theme = theme;
+        } catch (e) {
+          document.documentElement.dataset.theme = "light";
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <noscript>This portfolio needs JavaScript enabled to display.</noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
