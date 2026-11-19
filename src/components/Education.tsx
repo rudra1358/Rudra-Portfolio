@@ -10,7 +10,7 @@ export function Education() {
       <div className="grid grid-cols-1 items-start gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)] lg:gap-16">
         <SectionHeading
           id="education-title"
-          index="05"
+          index="06"
           eyebrow="Education"
           title={
             <>

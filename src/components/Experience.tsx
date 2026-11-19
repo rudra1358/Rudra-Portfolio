@@ -10,7 +10,7 @@ export function Experience() {
     <Section id="experience" tone="ink" labelledBy="experience-title">
       <SectionHeading
         id="experience-title"
-        index="04"
+        index="05"
         eyebrow="Certifications & Achievements"
         title={
           <>

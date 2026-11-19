@@ -49,7 +49,7 @@ export function Projects() {
             Projects, from <span className="serif-accent font-normal text-accent">notebook</span> to production.
           </>
         }
-        lead="Machine learning, data analysis and full stack apps. Click a project title for the full story, tech stack and links."
+        lead="Hand-coded machine learning, data analysis and full stack apps. Click a project title for the full story, tech stack and links."
       />
 
       <LayoutGroup>

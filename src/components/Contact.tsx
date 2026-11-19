@@ -137,7 +137,7 @@ export function Contact() {
         <div>
           <SectionHeading
             id="contact-title"
-            index="06"
+            index="07"
             eyebrow="Contact"
             title={
               <>

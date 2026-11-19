@@ -36,6 +36,34 @@ export interface Project {
   featured?: boolean;
 }
 
+/**
+ * Freelance / client work. Kept separate from `Project` (hand-coded work) on purpose,
+ * so it is always shown in its own section with an honest note on how it was built.
+ */
+export interface ClientProject {
+  id: string;
+  title: string;
+  /** Who it was for, e.g. "Concept client — premium café, Ahmedabad". */
+  client: string;
+  /** e.g. "Client demo", "Delivered", "In progress". */
+  status: string;
+  summary: string;
+  /** What the client gets — shown as a checklist. */
+  deliverables: string[];
+  technologies: string[];
+  /** True when built mainly with AI coding tools (vibe coding). Shows the disclosure badge and note. */
+  aiAssisted: boolean;
+  /** Short, honest note on how the project was made and what you did yourself. */
+  buildNote: string;
+  live?: string;
+  github?: string;
+  /** Path inside /public, e.g. "/projects/aurelia-cafe.webp". */
+  image?: string;
+  imageAlt?: string;
+  /** Optional extra screenshots shown as smaller thumbnails under the main image. */
+  gallery?: { src: string; alt: string }[];
+}
+
 export interface Skill {
   name: string;
   icon?: AnyIcon;
