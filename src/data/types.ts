@@ -51,7 +51,7 @@ export interface ClientProject {
   /** What the client gets — shown as a checklist. */
   deliverables: string[];
   technologies: string[];
-  /** True when built mainly with AI coding tools (vibe coding). Shows the disclosure badge and note. */
+  /** True when built mainly with AI coding tools. Shows the disclosure badge and note. */
   aiAssisted: boolean;
   /** Short, honest note on how the project was made and what you did yourself. */
   buildNote: string;

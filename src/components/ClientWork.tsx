@@ -9,7 +9,7 @@ import { TechBadge } from "./ui/TechBadge";
 
 /**
  * Freelance & client work — deliberately separate from the hand-coded Projects section,
- * with a clear disclosure for AI-assisted (vibe-coded) builds.
+ * with a clear disclosure for AI-assisted builds.
  */
 export function ClientWork() {
   if (clientWork.length === 0) return null;
@@ -106,7 +106,7 @@ function ClientCard({ project: p }: { project: ClientProject }) {
             <span className="rounded-full border border-line px-2.5 py-1 text-muted">{p.status}</span>
             {p.aiAssisted && (
               <span className="inline-flex items-center gap-1 rounded-full bg-accent-soft px-2.5 py-1 text-accent">
-                <Sparkles size={12} aria-hidden /> AI-assisted build · vibe-coded
+                <Sparkles size={12} aria-hidden /> AI-assisted build
               </span>
             )}
           </div>

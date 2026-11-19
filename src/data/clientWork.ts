@@ -4,7 +4,7 @@ import type { ClientProject } from "./types";
  * ─────────────────────────────────────────────────────────────
  *  FREELANCE & CLIENT WORK
  *  Shown in its own section, separate from the hand-coded projects in projects.ts.
- *  Set `aiAssisted: true` for anything built mainly with AI coding tools (vibe coding):
+ *  Set `aiAssisted: true` for anything built mainly with AI coding tools:
  *  the card then shows an "AI-assisted build" badge and the build note.
  * ─────────────────────────────────────────────────────────────
  */
@@ -27,7 +27,7 @@ export const clientWork: ClientProject[] = [
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Nodemailer", "Google Sheets", "Vercel"],
     aiAssisted: true,
     buildNote:
-      "Built with AI-assisted development (vibe coding). I wrote the brief, made the design and business decisions, set up Gmail, Google Sheets and Vercel, and tested everything end to end; an AI coding assistant wrote most of the code. It's a concept project for showing clients, not a real café.",
+      "Built with AI-assisted development. I wrote the brief, made the design and business decisions, set up Gmail, Google Sheets and Vercel, and tested everything end to end; an AI coding assistant wrote most of the code. It's a concept project for showing clients, not a real café.",
     live: "https://aurelia-cafe-theta.vercel.app",
     github: "https://github.com/rudra1358/aurelia-cafe",
     image: "/projects/aurelia-cafe.webp",
